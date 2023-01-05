@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/script.js" defer></script>
+    <title>Library</title>
+  </head>
+  <body>
+    <ul></ul>
+    <button>New Book</button>
+    <section id="modal" class="hidden">
+      <form action="">
+        <input type="text" id="bookAuthor" placeholder="Author" />
+        <input type="text" id="bookTitle" placeholder="Title" />
+        <input type="text" id="bookPages" placeholder="Pages" />
+        <div class="">
+          <input type="radio" id="haveRead" name="read-or-not" />
+          <label for="haveRead">I already read</label><br />
+          <input type="radio" id="notRead" name="read-or-not" />
+          <label for="notRead">I haven't read</label><br />
+        </div>
+        <input type="submit" value="Submit" id="submit" />
+      </form>
+    </section>
+    <div class="overlay hidden"></div>
+  </body>
+</html>
