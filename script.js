@@ -25,6 +25,7 @@ function Book(author, name, pages) {
   this.author = author;
   this.name = name;
   this.pages = pages;
+  //RETURN A STRING FOR THE OUTPUT LIST 
 }
 
 const submitButton = document
