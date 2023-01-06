@@ -4,7 +4,6 @@ const modal = document.getElementById("modal");
 const overlay = document.querySelector(".overlay");
 
 let myLibrary = [];
-let haveRead = false;
 
 function addBookToLibrary() {
   const parentList = document.querySelector("ul");
@@ -24,13 +23,6 @@ function addBookToLibrary() {
     const readBtn = document.createElement("button");
     newItem.appendChild(readBtn);
     readBtn.innerHTML = "Read";
-    readBtn.addEventListener("click", () => {
-      if (haveRead == true) {
-        return (haveRead = false);
-      } else {
-        return (haveRead = true);
-      }
-    });
   }
   return (myLibrary = []);
 }
@@ -45,6 +37,7 @@ function Book(author, title, pages) {
   this.author = author;
   this.title = title;
   this.pages = pages;
+  this.haveRead = function () {};
 }
 
 const submitButton = document
