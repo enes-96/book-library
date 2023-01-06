@@ -1,5 +1,3 @@
-"use strict";
-
 let myLibrary = [];
 
 function addBookToLibrary() {
@@ -10,7 +8,6 @@ function addBookToLibrary() {
     newItem.style.display = "flex";
     parentList.appendChild(newItem);
     newItem.innerHTML = myLibrary[books];
-    console.log(myLibrary[books]);
   }
   return (myLibrary = []);
 }
@@ -18,32 +15,30 @@ function addBookToLibrary() {
 const modal = document.getElementById("modal");
 const overlay = document.querySelector(".overlay");
 
-const addBookBtn = document
-  .querySelector("button")
-  .addEventListener("click", () => {
-    modal.classList.toggle("hidden");
-    overlay.classList.toggle("hidden");
-  });
+document.querySelector("button").addEventListener("click", () => {
+  modal.classList.toggle("hidden");
+  overlay.classList.toggle("hidden");
+});
 
-function Book(author, title, pages) {
+function Book(author, title, pages, hadread) {
   this.author = author;
   this.title = title;
   this.pages = pages;
+  this.hadread = function () {
+    return false;
+  };
 }
 
-const submitButton = document
-  .getElementById("submit")
-  .addEventListener("click", (event) => {
-    event.preventDefault();
-    const bookAuthor = document.getElementById("bookAuthor").value;
-    const bookTitle = document.getElementById("bookTitle").value;
-    const bookPages = document.getElementById("bookPages").value;
-    const radioButtonRead = document.getElementById("doneReading");
+document.getElementById("submit").addEventListener("click", (event) => {
+  event.preventDefault();
+  const bookAuthor = document.getElementById("bookAuthor").value;
+  const bookTitle = document.getElementById("bookTitle").value;
+  const bookPages = document.getElementById("bookPages").value;
 
-    const newBook = new Book(bookAuthor, bookTitle, bookPages);
-    myLibrary.push(newBook.author, newBook.title, newBook.pages);
-    modal.classList.toggle("hidden");
-    overlay.classList.toggle("hidden");
+  const newBook = new Book(bookAuthor, bookTitle, bookPages, hadread);
+  myLibrary.push(newBook.author, newBook.title, newBook.pages);
+  modal.classList.toggle("hidden");
+  overlay.classList.toggle("hidden");
 
-    addBookToLibrary();
-  });
+  addBookToLibrary();
+});
