@@ -1,14 +1,15 @@
 let myLibrary = [];
+const wrapper = document.querySelector(".wrapper");
 
 function addBookToLibrary() {
-  const parentList = document.querySelector("ul");
-
-  for (const books in myLibrary) {
+  const parentList = document.createElement("ul");
+  wrapper.appendChild(parentList);
+  myLibrary.forEach((book) => {
     const newItem = document.createElement("li");
-    newItem.style.display = "flex";
     parentList.appendChild(newItem);
-    newItem.innerHTML = myLibrary[books];
-  }
+    newItem.innerHTML = book;
+  });
+  // eslint-disable-next-line no-return-assign
   return (myLibrary = []);
 }
 
@@ -20,12 +21,15 @@ document.querySelector("button").addEventListener("click", () => {
   overlay.classList.toggle("hidden");
 });
 
-function Book(author, title, pages, hadread) {
+function Book(author, title, pages) {
   this.author = author;
   this.title = title;
   this.pages = pages;
+  // eslint-disable-next-line func-names, consistent-return
   this.hadread = function () {
-    return false;
+    const hadReadButton = document.querySelector("#doneReading");
+    if (hadReadButton.checked) return true;
+    if (!hadReadButton.checked) return false;
   };
 }
 
@@ -35,8 +39,14 @@ document.getElementById("submit").addEventListener("click", (event) => {
   const bookTitle = document.getElementById("bookTitle").value;
   const bookPages = document.getElementById("bookPages").value;
 
-  const newBook = new Book(bookAuthor, bookTitle, bookPages, hadread);
-  myLibrary.push(newBook.author, newBook.title, newBook.pages);
+  const newBook = new Book(bookAuthor, bookTitle, bookPages);
+  myLibrary.push(
+    newBook.author,
+    newBook.title,
+    newBook.pages,
+    // eslint-disable-next-line comma-dangle
+    newBook.hadread()
+  );
   modal.classList.toggle("hidden");
   overlay.classList.toggle("hidden");
 
