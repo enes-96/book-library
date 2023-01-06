@@ -1,8 +1,5 @@
 "use strict";
 
-const modal = document.getElementById("modal");
-const overlay = document.querySelector(".overlay");
-
 let myLibrary = [];
 
 function addBookToLibrary() {
@@ -13,19 +10,14 @@ function addBookToLibrary() {
     newItem.style.display = "flex";
     parentList.appendChild(newItem);
     newItem.innerHTML = myLibrary[books];
-    const deleteBtn = document.createElement("button");
-    newItem.appendChild(deleteBtn);
-    deleteBtn.innerHTML = "x";
-    deleteBtn.addEventListener("click", () => {
-      newItem.remove();
-    });
-
-    const readBtn = document.createElement("button");
-    newItem.appendChild(readBtn);
-    readBtn.innerHTML = "Read";
+    console.log(myLibrary[books]);
   }
   return (myLibrary = []);
 }
+
+const modal = document.getElementById("modal");
+const overlay = document.querySelector(".overlay");
+
 const addBookBtn = document
   .querySelector("button")
   .addEventListener("click", () => {
@@ -37,7 +29,6 @@ function Book(author, title, pages) {
   this.author = author;
   this.title = title;
   this.pages = pages;
-  this.haveRead = function () {};
 }
 
 const submitButton = document
@@ -50,21 +41,9 @@ const submitButton = document
     const radioButtonRead = document.getElementById("doneReading");
 
     const newBook = new Book(bookAuthor, bookTitle, bookPages);
-
+    myLibrary.push(newBook.author, newBook.title, newBook.pages);
     modal.classList.toggle("hidden");
     overlay.classList.toggle("hidden");
-
-    if (radioButtonRead.checked) {
-      haveRead = true;
-      myLibrary.push(
-        `Author: ${newBook.author} | Title: ${newBook.title} | Pages: ${newBook.pages} | Read: ${haveRead}`
-      );
-    } else {
-      haveRead = false;
-      myLibrary.push(
-        `Author: ${newBook.author} | Title: ${newBook.title} | Pages: ${newBook.pages} | Read: ${haveRead}`
-      );
-    }
 
     addBookToLibrary();
   });
