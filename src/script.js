@@ -8,13 +8,14 @@ function addBookToLibrary() {
 
   myLibrary.forEach((book) => {
     const newItem = document.createElement("td");
-    newItem.classList.add("px-6", "py-4", "text-xl");
+    newItem.classList.add("px-6", "py-4", "text-md");
     parentList.appendChild(newItem);
     newItem.innerHTML = book;
   });
 
-  const checkIfRead = function () {
-    const toggleRead = document.createElement("button");
+  function checkIfRead() {
+    const toggleRead = document.createElement("td");
+    toggleRead.classList.add("cursor-pointer", "text-md");
     parentList.appendChild(toggleRead);
     const hadReadButton = document.querySelector("#doneReading");
     if (hadReadButton.checked) {
@@ -23,7 +24,14 @@ function addBookToLibrary() {
     if (!hadReadButton.checked) {
       toggleRead.innerText = "Not Read";
     }
-  };
+    toggleRead.addEventListener("click", () => {
+      if (toggleRead.innerText === "Read") {
+        toggleRead.innerText = "Not Read";
+      } else if (toggleRead.innerText === "Not Read") {
+        toggleRead.innerText = "Read";
+      }
+    });
+  }
   checkIfRead();
 
   const deleteWrapper = document.createElement("td");
@@ -47,6 +55,7 @@ function addBookToLibrary() {
     "left-1/2",
     "transform",
     "-translate-x-1/2",
+    // eslint-disable-next-line comma-dangle
     "-translate-y-1/2"
   );
   deleteButton.innerHTML = "Delete";
@@ -78,12 +87,14 @@ document.getElementById("submit").addEventListener("click", (event) => {
   const bookTitle = document.getElementById("bookTitle").value;
   const bookPages = document.getElementById("bookPages").value;
 
+  if (!bookAuthor.value) return;
+
   const newBook = new Book(bookAuthor, bookTitle, bookPages);
   myLibrary.push(
     newBook.author,
     newBook.title,
-    newBook.pages
     // eslint-disable-next-line comma-dangle
+    newBook.pages
   );
   modal.classList.toggle("hidden");
   overlay.classList.toggle("hidden");
