@@ -13,40 +13,76 @@
     <button
       type="button"
       id="addBook"
-      class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+      class="absolute bottom-2 right-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
     >
       New Book
     </button>
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg w-3/4 m-auto">
+    <div
+      class="mt-12 relative overflow-x-auto shadow-md sm:rounded-lg w-3/4 m-auto"
+    >
       <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead
-          class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+          class="bg-gray-50 text-xs text-gray-700 uppercase dark:bg-gray-700 dark:text-gray-400 text-center"
         >
           <tr>
             <th scope="col" class="px-6 py-3">Author</th>
             <th scope="col" class="px-6 py-3">Book</th>
             <th scope="col" class="px-6 py-3">Pages</th>
-            <th scope="col" class="px-6 py-3">Status</th>
-            <th scope="col" class="px-6 py-3">Delete</th>
             <th scope="col" class="px-6 py-3">Read</th>
+            <th scope="col" class="px-6 py-3">Delete</th>
           </tr>
         </thead>
         <tbody></tbody>
       </table>
     </div>
-
-    <section id="modal" class="hidden">
-      <form action="">
-        <h1>Add new Book</h1>
-        <input type="text" id="bookAuthor" placeholder="Author" required />
-        <input type="text" id="bookTitle" placeholder="Title" required />
-        <input type="text" id="bookPages" placeholder="Pages" required />
-
-        <input type="checkbox" id="doneReading" name="read-or-not" />
-        <label for="doneReading">I already read</label><br />
-        <input type="submit" value="Submit" id="submit" />
+    <section
+      id="modal"
+      class="hidden z-50 bg-white rounded-xl p-6 absolute w-1/5 h-3/6 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+    >
+      <form action="" class="h-full flex flex-col justify-between">
+        <h1 class="text-center text-3xl font-bold">Add new Book</h1>
+        <input
+          type="text"
+          id="bookAuthor"
+          placeholder="Author"
+          required
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        />
+        <input
+          type="text"
+          id="bookTitle"
+          placeholder="Title"
+          required
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        />
+        <input
+          type="text"
+          id="bookPages"
+          placeholder="Pages"
+          required
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        />
+        <div class="flex items-center mb-4">
+          <input
+            type="checkbox"
+            id="doneReading"
+            name="read-or-not"
+            class="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+          />
+          <label
+            for="doneReading"
+            class="ml-2 text-xl font-medium text-gray-900 dark:text-gray-300"
+            >I already read</label
+          ><br />
+        </div>
+        <input
+          type="submit"
+          value="Submit"
+          id="submit"
+          class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+        />
       </form>
     </section>
-    <div class="overlay hidden"></div>
+    <div class="overlay hidden z-10"></div>
   </body>
 </html>
