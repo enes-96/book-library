@@ -88,10 +88,12 @@ document.getElementById("submit").addEventListener("click", (event) => {
   const bookPages = document.getElementById("bookPages").value;
 
   if (bookAuthor === "") {
+    // eslint-disable-next-line no-alert
     alert("Type the Author");
     return;
   }
   if (bookTitle === "") {
+    // eslint-disable-next-line no-alert
     alert("Type the Title");
     return;
   }
