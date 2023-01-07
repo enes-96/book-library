@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/input.css" />
+    <script src="/src/script.js" defer></script>
+    <title>Library</title>
+  </head>
+  <body class="">
+    <button
+      type="button"
+      id="addBook"
+      class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+    >
+      New Book
+    </button>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg w-3/4 m-auto">
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead
+          class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+        >
+          <tr>
+            <th scope="col" class="px-6 py-3">Author</th>
+            <th scope="col" class="px-6 py-3">Book</th>
+            <th scope="col" class="px-6 py-3">Pages</th>
+            <th scope="col" class="px-6 py-3">Status</th>
+            <th scope="col" class="px-6 py-3">Delete</th>
+            <th scope="col" class="px-6 py-3">Read</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <section id="modal" class="hidden">
+      <form action="">
+        <h1>Add new Book</h1>
+        <input type="text" id="bookAuthor" placeholder="Author" required />
+        <input type="text" id="bookTitle" placeholder="Title" required />
+        <input type="text" id="bookPages" placeholder="Pages" required />
+
+        <input type="checkbox" id="doneReading" name="read-or-not" />
+        <label for="doneReading">I already read</label><br />
+        <input type="submit" value="Submit" id="submit" />
+      </form>
+    </section>
+    <div class="overlay hidden"></div>
+  </body>
+</html>
