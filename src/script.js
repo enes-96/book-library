@@ -87,7 +87,14 @@ document.getElementById("submit").addEventListener("click", (event) => {
   const bookTitle = document.getElementById("bookTitle").value;
   const bookPages = document.getElementById("bookPages").value;
 
-  if (!bookAuthor.value) return;
+  if (bookAuthor === "") {
+    alert("Type the Author");
+    return;
+  }
+  if (bookTitle === "") {
+    alert("Type the Title");
+    return;
+  }
 
   const newBook = new Book(bookAuthor, bookTitle, bookPages);
   myLibrary.push(
