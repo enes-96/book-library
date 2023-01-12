@@ -73,11 +73,12 @@ document.getElementById("addBook").addEventListener("click", () => {
   overlay.classList.toggle("hidden");
 });
 
-function Book(author, title, pages) {
-  this.author = author;
-  this.title = title;
-  this.pages = pages;
-  // eslint-disable-next-line func-names, consistent-return
+class Book {
+  constructor(author, title, pages) {
+    this.author = author;
+    this.title = title;
+    this.pages = pages;
+  }
 }
 
 document.getElementById("submit").addEventListener("click", (event) => {
